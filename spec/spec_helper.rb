@@ -1,5 +1,5 @@
-Rspec.configure do |config|
-	config.color_enabled = true
+RSpec.configure do |config|
+	config.color = true
 
 	config.tty = true
 
