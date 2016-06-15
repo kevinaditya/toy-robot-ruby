@@ -14,5 +14,13 @@ describe Command do
         command.process(first_command)
       end
     end
+    context 'when processing a REPORT command' do
+      let(:first_command) { 'REPORT' }
+
+      it 'places the robot on top of a table' do
+        expect(robot).to receive(:report)
+        command.process(first_command)
+      end
+    end
   end
 end

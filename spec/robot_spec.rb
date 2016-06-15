@@ -74,5 +74,11 @@ describe Robot do
         expect(robot.facing).to eq 'EAST'
       end
     end
+
+    describe '#report' do
+      it 'display the robot coordinate' do
+        expect { robot.report }.to output("Output: 0,0,NORTH").to_stdout
+      end
+    end
   end
 end

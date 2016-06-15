@@ -45,4 +45,9 @@ class Robot
       @facing = 'NORTH'
     end
   end
+
+  def report
+  	print "Output: #{@x},#{@y},#{@facing}"
+  end
+
 end

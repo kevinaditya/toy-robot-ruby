@@ -4,7 +4,11 @@ class Command
   end
 
   def process(command)
-    params = command.split.last
-    @robot.place(*params.split(","))
+  	if command.start_with?('PLACE')
+      params = command.split.last
+      @robot.place(*params.split(","))
+    elsif command == 'REPORT'
+      @robot.report()
+    end
   end
 end
