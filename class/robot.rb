@@ -50,4 +50,8 @@ class Robot
   	print "Output: #{@x},#{@y},#{@facing}"
   end
 
+  def is_placed?
+    !(@x.nil? && @y.nil?)
+  end
+
 end

@@ -4,9 +4,17 @@ require_relative '../class/robot'
 describe Robot do
   let(:robot) { Robot.new }
 
+  it 'has not been placed yet' do
+    expect(robot.is_placed?).to be false
+  end
+
   describe 'placing a robot on the tabletop' do
     before do 
       robot.place(0, 0, 'NORTH') 
+    end
+
+    it 'has been placed' do
+      expect(robot.is_placed?).to be true
     end
 
     it 'sets the x coordinate' do
@@ -17,7 +25,7 @@ describe Robot do
       expect(robot.y).to be 0
     end
 
-    it 'set the robot\'s facing' do
+    it 'sets the robot\'s facing' do
       expect(robot.facing).to eq 'NORTH'
     end
 
@@ -40,7 +48,7 @@ describe Robot do
     end
   end
 
-  context 'when robot has already been placed' do
+  context 'when the robot has already been placed' do
     let(:facing) { 'NORTH' }
 
     before do

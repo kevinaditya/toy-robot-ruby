@@ -7,8 +7,16 @@ class Command
   	if command.start_with?('PLACE')
       params = command.split.last
       @robot.place(*params.split(","))
-    elsif command == 'REPORT'
-      @robot.report()
+	elsif @robot.is_placed?
+	  if command == 'MOVE'
+	    @robot.move
+      elsif command == 'LEFT'
+        @robot.left
+      elsif command == 'RIGHT'
+        @robot.right
+      elsif command == 'REPORT'
+        @robot.report
+      end
     end
   end
 end
