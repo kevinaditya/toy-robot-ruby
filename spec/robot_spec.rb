@@ -117,7 +117,7 @@ describe Robot do
 
     describe '#report' do
       it 'display the robot coordinate' do
-        expect { robot.report }.to output("Output: 3,4,NORTH").to_stdout
+        expect { robot.report }.to output("Output: 3,4,NORTH\n").to_stdout
       end
     end
   end

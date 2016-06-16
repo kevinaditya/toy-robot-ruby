@@ -1,7 +1,8 @@
 require_relative '../class/robot'
 require_relative '../class/command'
 
-robot = Robot.new
+table = Table.new
+robot = Robot.new(table)
 command = Command.new(robot)
 
 ARGF.each_line { |line| 

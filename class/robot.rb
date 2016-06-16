@@ -63,7 +63,7 @@ class Robot
   end
 
   def report
-  	print "Output: #{@x},#{@y},#{@facing}"
+  	puts "Output: #{@x},#{@y},#{@facing}"
   end
 
   def is_placed?
