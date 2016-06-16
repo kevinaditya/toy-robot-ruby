@@ -1,22 +1,38 @@
+require_relative 'table'
+
 class Robot
   attr_reader :x, :y, :facing
 
+  def initialize(table)
+    @table = table
+  end
+
   def place(x, y, facing)
-    @x = x.to_i
-    @y = y.to_i
-    @facing = facing.to_s
+  	if @table.inside_table?(x.to_i, y.to_i)
+      @x = x.to_i
+      @y = y.to_i
+      @facing = facing.to_s
+    end
   end
 
   def move
     case @facing 
     when 'NORTH'
-      @y = @y + 1
+   	  if @table.inside_table?(@x, @y+1)
+        @y = @y + 1
+      end
 	when 'EAST'
-	  @x = @x + 1
+	  if @table.inside_table?(@x+1, @y)
+	    @x = @x + 1
+	end
     when 'SOUTH'
-      @y = @y - 1 
+      if @table.inside_table?(@x, @y-1)
+        @y = @y - 1 
+      end
     when 'WEST'
-      @x = @x - 1
+      if @table.inside_table?(@x-1, @y)
+          @x = @x - 1
+      end
     end
   end
 
